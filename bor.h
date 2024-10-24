@@ -23,6 +23,9 @@ public:
     int get_cnt_words();
 private:
     struct node {
+        node();
+        node(char sim);
+        char _sim;
         std::vector<node*> chils;
         bool _operator;
         bool _key_word;
