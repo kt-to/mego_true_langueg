@@ -12,7 +12,7 @@
 
 class bor() {
 public:
-    int gagago(std::string word);
+    int gagago(std::string& word);
     // 0 нечего
     // 1 key_word
     // 2 opperator
@@ -23,7 +23,7 @@ private:
         bool _key_word;
     };
     void build();
-    void add(std::string word);
+    void add(std::string& word);
     node* _start;
 
 }
