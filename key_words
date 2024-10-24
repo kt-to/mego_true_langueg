@@ -1,12 +1,13 @@
 while
 for
 if
+switch
 between
-Ivan_loshara
-DDD
-sup
+break
+continue
 void
 int
+double
 bool
 char
 string
