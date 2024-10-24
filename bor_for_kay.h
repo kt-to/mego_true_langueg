@@ -22,6 +22,8 @@ private:
         bool _operator;
         bool _key_word;
     };
+    void build();
+    void add(std::string word);
     node* _start;
 
 }
