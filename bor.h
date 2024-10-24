@@ -10,20 +10,23 @@
 #include "vector"
 #include "string"
 
-class bor() {
+class bor {
 public:
+    bor();
+
     int gagago(std::string& word);
     // 0 нечего
     // 1 key_word
     // 2 opperator
+    void add(std::string& word, int type);
+
+    int get_cnt_words();
 private:
     struct node {
         std::vector<node*> chils;
         bool _operator;
         bool _key_word;
     };
-    void build();
-    void add(std::string& word);
     node* _start;
-
-}
+    int _cnt_words;
+};
