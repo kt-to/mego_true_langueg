@@ -14,7 +14,7 @@ class bor {
 public:
     bor();
 
-    int gagago(std::string& word);
+    int gagago(std::string& word, int i = 0);
     // 0 нечего
     // 1 key_word
     // 2 opperator
@@ -25,10 +25,10 @@ private:
     struct node {
         node();
         node(char sim);
-        char _sim;
+        char sim;
         std::vector<node*> chils;
-        bool _operator;
-        bool _key_word;
+        bool is_operator;
+        bool is_key_word;
     };
     node* _start;
     int _cnt_words;
