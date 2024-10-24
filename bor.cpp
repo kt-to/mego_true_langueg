@@ -3,6 +3,32 @@
 //
 #include "bor.h"
 
+int bor::gagago(std::string &word, int i) {
+    auto now = _start;
+    while (i != word.size()) {
+        bool cont = false;
+        for (auto& to : now->chils) {
+            if (to->sim == word[i]) {
+                cont = true;
+                now = to;
+                i++;
+                break;
+            }
+        }
+        if (!cont) {
+            return 0;
+        }
+    }
+    if (now->is_key_word) {
+        return 1;
+    }
+    if (now->is_operator) {
+        return 2;
+    }
+    return 0;
+}
+
+
 bor::bor() {
     _start = new node();
     _cnt_words = 0;
