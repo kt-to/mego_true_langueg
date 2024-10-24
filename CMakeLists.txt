@@ -7,5 +7,5 @@ include_directories(.)
 
 add_executable(mego_true_langueg
         bor.cpp
-        bor_for_kay.h
+        bor.h
         main.cpp)
