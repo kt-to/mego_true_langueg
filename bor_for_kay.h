@@ -13,11 +13,15 @@
 class bor() {
 public:
     int gagago(std::string word);
+    // 0 нечего
+    // 1 key_word
+    // 2 opperator
 private:
     struct node {
-        std::vector<node*>
+        std::vector<node*> chils;
+        bool _operator;
+        bool _key_word;
     };
     node* _start;
-    bool _operator;
 
 }
