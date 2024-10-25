@@ -1,0 +1,3 @@
+/home/ivang/mego_true_langueg/cmake-build-debug/CMakeFiles/mego_true_langueg.dir
+/home/ivang/mego_true_langueg/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ivang/mego_true_langueg/cmake-build-debug/CMakeFiles/rebuild_cache.dir
