@@ -1,0 +1,4 @@
+# ninja log v5
+1	23	1729818041436713302	build.ninja	3e7af6b4b2fa1319
+0	297	1729818041736713308	CMakeFiles/mego_true_langueg.dir/main.o	4bcf180bd56a4d5
+297	362	1729818041803379975	mego_true_langueg	7984d14b5c7af6f3
