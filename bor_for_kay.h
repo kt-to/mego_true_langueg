@@ -7,7 +7,7 @@
 
 #endif //MEGO_TRUE_LANGUEG_BOR_FOR_KAY_H
 
-class bor() {
+class bor {
 public:
     struct node {
         int a;
@@ -15,4 +15,4 @@ public:
     node* _start;
 private:
     bool _suka;
-}
+};
