@@ -1,12 +1,14 @@
 #include "bits/stdc++.h"
 #include "Lexeme.h"
-#include "bor_for_kay.h"
+#include "bor.h"
 
 using namespace std;
 
+bor b;
+
 void add(string& s, vector<Lexeme>& res) {
     if (s.empty()) return;
-    res.push_back({0, s}); //bor.find();
+    res.push_back({b.gagago(s), s});
     if (res.back().type == 0 && isdigit(res.back().data[0])) {
         throw "EMAE";
     }
@@ -18,8 +20,8 @@ void addop(string& s, vector<Lexeme>& res) {
     string cur;
     for (auto& c : s) {
         cur.push_back(c);
-        if (1) { //bor.find()
-            res.push_back({2, cur});
+        if (b.gagago(cur)) {
+            res.push_back({b.gagago(cur), cur});
             cur.clear();
         }
     }
@@ -27,7 +29,8 @@ void addop(string& s, vector<Lexeme>& res) {
 }
 
 map<char, int> is_operator{{'!', 1}, {'^', 1}, {'&', 1}, {'|', 1}, {'+', 1},
-{'-', 1}, {'%', 1}, {'/', 1}, {'*', 1}, {'=', 1}, {'<', 1}, {'>', 1}};
+{'-', 1}, {'%', 1}, {'/', 1}, {'*', 1}, {'=', 1}, {'<', 1}, {'>', 1}, {'(', 1},
+{')', 1}, {'[', 1}, {']', 1}, {'{', 1}, {'}', 1}};
 
 // 0 - nothing
 // 1 - number
@@ -47,11 +50,6 @@ vector<Lexeme> lepsikon(const string& s) {
             } else {
                 add(cur, res);
             }
-            cond = 0;
-        } else if (c == '(' || c == ')') {
-            add(cur, res);
-            cur = c;
-            add(cur, res);
             cond = 0;
         } else if (is_operator[c]) {
             if (cond != 3) {
@@ -79,4 +77,5 @@ vector<Lexeme> lepsikon(const string& s) {
             cond = isdigit(c) ? 1 : 2;
         }
     }
+    return res;
 }
