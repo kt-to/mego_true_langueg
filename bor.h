@@ -7,6 +7,7 @@
 
 #endif //MEGO_TRUE_LANGUEG_BOR_FOR_KAY_H
 
+#pragma once
 #include "vector"
 #include "string"
 
@@ -15,9 +16,13 @@ public:
     bor();
 
     int gagago(std::string& word, int i = 0);
-    // 0 нечего
+    // 0 ничего
     // 1 key_word
-    // 2 opperator
+    // 2 operator
+    // 3 number
+    // 4 comment
+    // 5 literal
+    // 6 double
     void add(std::string& word, int type);
 
     int get_cnt_words();

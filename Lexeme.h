@@ -1,6 +1,7 @@
 #ifndef MEGO_TRUE_LANGUEG_LEXEME_H
 #define MEGO_TRUE_LANGUEG_LEXEME_H
 #include "bits/stdc++.h"
+#pragma once
 
 using namespace std;
 

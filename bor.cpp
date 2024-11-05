@@ -52,6 +52,7 @@ void bor::add(std::string &word, int type) {
             auto br = new node(word[i]);
             i++;
             now->chils.push_back(br);
+            now = br;
         }
     }
     if (type == 1) {
@@ -65,10 +66,14 @@ void bor::add(std::string &word, int type) {
 
 bor::node::node() {
     sim = '\0';
+    is_operator = false;
+    is_key_word = false;
 }
 
 bor::node::node(char _sim) {
     sim = _sim;
+    is_key_word = false;
+    is_operator = false;
 }
 
 int bor::get_cnt_words() {

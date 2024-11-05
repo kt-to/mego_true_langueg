@@ -49,8 +49,22 @@ cmake_ninja_workdir = /home/ivang/mego_true_langueg/cmake-build-debug/
 
 build cmake_object_order_depends_target_mego_true_langueg: phony || CMakeFiles/mego_true_langueg.dir
 
+build CMakeFiles/mego_true_langueg.dir/bor.o: CXX_COMPILER__mego_true_langueg_unscanned_Debug /home/ivang/mego_true_langueg/bor.cpp || cmake_object_order_depends_target_mego_true_langueg
+  DEP_FILE = CMakeFiles/mego_true_langueg.dir/bor.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I/home/ivang/mego_true_langueg/.
+  OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
+  OBJECT_FILE_DIR = CMakeFiles/mego_true_langueg.dir
+
 build CMakeFiles/mego_true_langueg.dir/main.o: CXX_COMPILER__mego_true_langueg_unscanned_Debug /home/ivang/mego_true_langueg/main.cpp || cmake_object_order_depends_target_mego_true_langueg
   DEP_FILE = CMakeFiles/mego_true_langueg.dir/main.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I/home/ivang/mego_true_langueg/.
+  OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
+  OBJECT_FILE_DIR = CMakeFiles/mego_true_langueg.dir
+
+build CMakeFiles/mego_true_langueg.dir/Lexeme.o: CXX_COMPILER__mego_true_langueg_unscanned_Debug /home/ivang/mego_true_langueg/Lexeme.cpp || cmake_object_order_depends_target_mego_true_langueg
+  DEP_FILE = CMakeFiles/mego_true_langueg.dir/Lexeme.o.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -I/home/ivang/mego_true_langueg/.
   OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
@@ -64,7 +78,7 @@ build CMakeFiles/mego_true_langueg.dir/main.o: CXX_COMPILER__mego_true_langueg_u
 #############################################
 # Link the executable mego_true_langueg
 
-build mego_true_langueg: CXX_EXECUTABLE_LINKER__mego_true_langueg_Debug CMakeFiles/mego_true_langueg.dir/main.o
+build mego_true_langueg: CXX_EXECUTABLE_LINKER__mego_true_langueg_Debug CMakeFiles/mego_true_langueg.dir/bor.o CMakeFiles/mego_true_langueg.dir/main.o CMakeFiles/mego_true_langueg.dir/Lexeme.o
   FLAGS = -g
   LINK_FLAGS = -rdynamic
   OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
