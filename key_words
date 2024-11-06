@@ -6,7 +6,6 @@ switch
 break
 return
 continue
-void
 int
 double
 bool
