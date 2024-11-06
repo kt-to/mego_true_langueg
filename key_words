@@ -7,7 +7,7 @@ break
 return
 continue
 int
-double
+float
 bool
 char
 string
