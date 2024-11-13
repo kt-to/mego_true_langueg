@@ -35,6 +35,8 @@ public:
     Lexeme(int type = 0, string data = {}, string tp = {});
 
     Lexeme(const Lexeme& other);
+
+    inline string get_type();
 };
 
 #endif //MEGO_TRUE_LANGUEG_LEXEME_H
