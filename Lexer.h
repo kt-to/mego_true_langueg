@@ -1,5 +1,6 @@
 #ifndef MEGO_TRUE_LANGUEG_LEXER_H
 #define MEGO_TRUE_LANGUEG_LEXER_H
+#pragma once
 
 void Program();
 

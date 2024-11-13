@@ -239,9 +239,17 @@ Lexeme lex;
 
 void getlex() {
     if (cur == lex_container.size()) {
-        lex = {8, {}};
+        lex = {8, {}, "end"};
     } else {
         lex = lex_container[cur++];
+    }
+}
+
+Lexeme nextlex() {
+    if (cur == lex_container.size()) {
+        return {8, {}, "end"};
+    } else {
+        return lex_container[cur];
     }
 }
 
