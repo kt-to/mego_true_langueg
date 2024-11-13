@@ -22,6 +22,7 @@
 #include <stack>
 #include "Lexeme.h"
 #include "bor.h"
+#include "lexicon.h"
 
 using namespace std;
 
@@ -232,10 +233,6 @@ vector<Lexeme> lexrr() {
     }
     return ans;
 }
-
-int cur = 0;
-vector<Lexeme> lex_container;
-Lexeme lex;
 
 void getlex() {
     if (cur == lex_container.size()) {

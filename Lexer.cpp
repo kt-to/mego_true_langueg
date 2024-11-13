@@ -1,9 +1,6 @@
 //
 // Created by Дмитрий Фоминых on 13.11.2024.
-//
-#include "main.cpp"
 #include "Lexer.h"
-#include "lexer_exp.h"
 
 void Program() {
     int cnt = 1;
@@ -193,7 +190,7 @@ bool Keyword() {
     lex.get_type() == "switch") {
         return true;
     } else {
-        return true;
+        return false;
     }
 }
 
@@ -235,4 +232,12 @@ void While() {
     }
 }
 
+void For() {}
 
+void If() {}
+
+void Switch() {}
+
+void Call_func() {}
+
+void Between() {}

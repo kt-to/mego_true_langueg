@@ -7,9 +7,10 @@ include_directories(.)
 
 add_executable(mego_true_langueg
         bor.cpp
-        main.cpp
+        lexicon.cpp
     Lexeme.cpp
         Lexer.h
         lexer_exp.h
         Lexer.cpp
-        lexer_exp.cpp)
+        lexer_exp.cpp
+        lexicon.h)

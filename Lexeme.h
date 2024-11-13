@@ -36,7 +36,7 @@ public:
 
     Lexeme(const Lexeme& other);
 
-    inline string get_type();
+    string get_type();
 };
 
 #endif //MEGO_TRUE_LANGUEG_LEXEME_H
