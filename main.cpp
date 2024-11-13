@@ -74,11 +74,6 @@ void adddbl(string& s, vector<Lexeme>& res, bor& b) {
     s.clear();
 }
 
-// 0 - nothing
-// 1 - number
-// 2 - word
-// 3 - operator
-
 vector<Lexeme> lepsikon(string& s, bor& b) {
     vector<Lexeme> res;
     string cur;

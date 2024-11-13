@@ -10,4 +10,4 @@ add_executable(mego_true_langueg
         main.cpp
     Lexeme.cpp
         Lexer.h
-        lexer_exp.h)
+        lexer_exp.h Lexer.cpp)
