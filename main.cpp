@@ -207,7 +207,7 @@ vector<Lexeme> lepsikon(string& s, bor& b) {
     return res;
 }
 
-signed main() {
+vector<Lexeme> lexrr() {
     bor b;
     ifstream fin("../operator");
     string t;
@@ -224,15 +224,25 @@ signed main() {
         s += t;
         s += '\n';
     }
-    vector<string> definition{"identifier", "key_word", "operator", "number", "comment", "literal", "double"};
     vector<Lexeme> res = lepsikon(s, b);
-    ofstream out("/home/ivang/mego_true_langueg/output");
+    vector<Lexeme> ans;
     for (auto& el : res) {
         if (el.type == 4) continue;
+        ans.push_back(el);
+    }
+    return ans;
+}
+
+vector<Lexeme> lex_container;
+
+signed main() {
+    lex_container = lexrr();
+    vector<string> definition{"identifier", "key_word", "operator", "number", "comment", "literal", "double"};
+    ofstream out("/home/ivang/mego_true_langueg/output");
+    for (auto& el : lex_container) {
         out << "<" << definition[el.type] << ">" << " " << el.data << "\n";
     }
 }
-
 
 // long comment YES
 // number of line NO
