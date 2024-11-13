@@ -233,14 +233,24 @@ vector<Lexeme> lexrr() {
     return ans;
 }
 
+int cur = 0;
 vector<Lexeme> lex_container;
+Lexeme lex;
+
+void getlex() {
+    if (cur == lex_container.size()) {
+        lex = {7, {}};
+    } else {
+        lex = lex_container[cur++];
+    }
+}
 
 signed main() {
     lex_container = lexrr();
-    vector<string> definition{"identifier", "key_word", "operator", "number", "comment", "literal", "double"};
+    vector<string> definition{"name", "key_word", "operator", "number", "comment", "literal", "double", "end"};
     ofstream out("/home/ivang/mego_true_langueg/output");
     for (auto& el : lex_container) {
-        out << "<" << definition[el.type] << ">" << " " << el.data << "\n";
+        el.tp = definition[el.type];
     }
 }
 

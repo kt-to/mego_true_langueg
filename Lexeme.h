@@ -30,8 +30,9 @@ class Lexeme{
 public:
     int type;
     string data;
+    string tp;
 
-    Lexeme(int type, string data);
+    Lexeme(int type = 0, string data = {}, string tp = {});
 
     Lexeme(const Lexeme& other);
 };
