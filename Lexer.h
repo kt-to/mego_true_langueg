@@ -11,29 +11,21 @@ void Description_of_functions();
 
 void Type();
 
-void Array();
-
 void Declaring_variables();
 
 void Declaring_arguments();
 
+void Declaring_argument();
+
 void Declaring_variable();
 
-void Symbol();
-
-void Number();
-
-void Double();
-
 void Name();
-
-void String();
 
 void Literal();
 
 void Code_block();
 
-void Keyword();
+bool Keyword();
 
 void Exp_main();
 
