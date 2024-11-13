@@ -6,9 +6,8 @@ switch
 break
 return
 continue
-void
 int
-double
+float
 bool
 char
 string
