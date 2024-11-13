@@ -32,3 +32,7 @@ Lexeme::Lexeme(const Lexeme& other) {
     type = other.type;
     data = other.data;
 }
+
+inline string Lexeme::get_type() {
+    return tp;
+}
