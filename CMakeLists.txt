@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(mego_true_langueg
         bor.cpp
         main.cpp
-    Lexeme.cpp)
+    Lexeme.cpp lexer_exp.h)
