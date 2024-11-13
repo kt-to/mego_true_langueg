@@ -84,6 +84,13 @@ build CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o: CXX_COMPILER__mego_true_
   OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
   OBJECT_FILE_DIR = CMakeFiles/mego_true_langueg.dir
 
+build CMakeFiles/mego_true_langueg.dir/main.cpp.o: CXX_COMPILER__mego_true_langueg_unscanned_Debug /home/ivang/mego_true_langueg/main.cpp || cmake_object_order_depends_target_mego_true_langueg
+  DEP_FILE = CMakeFiles/mego_true_langueg.dir/main.cpp.o.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -I/home/ivang/mego_true_langueg/.
+  OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
+  OBJECT_FILE_DIR = CMakeFiles/mego_true_langueg.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target mego_true_langueg
@@ -92,7 +99,7 @@ build CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o: CXX_COMPILER__mego_true_
 #############################################
 # Link the executable mego_true_langueg
 
-build mego_true_langueg: CXX_EXECUTABLE_LINKER__mego_true_langueg_Debug CMakeFiles/mego_true_langueg.dir/bor.cpp.o CMakeFiles/mego_true_langueg.dir/lexicon.cpp.o CMakeFiles/mego_true_langueg.dir/Lexeme.cpp.o CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o
+build mego_true_langueg: CXX_EXECUTABLE_LINKER__mego_true_langueg_Debug CMakeFiles/mego_true_langueg.dir/bor.cpp.o CMakeFiles/mego_true_langueg.dir/lexicon.cpp.o CMakeFiles/mego_true_langueg.dir/Lexeme.cpp.o CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o CMakeFiles/mego_true_langueg.dir/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/mego_true_langueg.dir
   POST_BUILD = :

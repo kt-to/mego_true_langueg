@@ -13,4 +13,5 @@ add_executable(mego_true_langueg
         lexer_exp.h
         Lexer.cpp
         lexer_exp.cpp
-        lexicon.h)
+        lexicon.h
+        main.cpp)

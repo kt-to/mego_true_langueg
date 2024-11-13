@@ -29,4 +29,6 @@ void getlex();
 
 Lexeme nextlex();
 
+void make();
+
 #endif //MEGO_TRUE_LANGUEG_LEXICON_H

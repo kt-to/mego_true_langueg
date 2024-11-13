@@ -250,7 +250,7 @@ Lexeme nextlex() {
     }
 }
 
-signed main() {
+void make() {
     lex_container = lexrr();
     vector<string> definition{"name", "key_word", "operator", "number", "comment", "literal", "double", "type", "end"};
     ofstream out("/home/ivang/mego_true_langueg/output");
