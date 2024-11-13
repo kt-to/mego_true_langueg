@@ -27,19 +27,28 @@
 #include "lexer_exp.h"
 
 void exp0() { // Выражение_запятая
-
+    exp1();
+    while (lex.get_type() == ",") {
+        getlex();
+        exp1();
+    }
 }
 
 void exp1() { // Выражение_присваивания
-
+    auto norm {[&]() {return lex.get_type() == "=" || lex.get_type() == "+=" ||
+    lex.get_type() == "-=" || lex.get_type() == "*=" || lex.get_type() == "/=" || lex.get_type() == "%=";}};
+    while (norm()) {
+        getlex();
+        exp2();
+    }
 }
 
 
 void exp2() { // Выражение_логик_или
-    exp4();
+    exp3();
     while (lex.get_type() == "||") {
         getlex();
-        exp4();
+        exp3();
     }
 }
 
