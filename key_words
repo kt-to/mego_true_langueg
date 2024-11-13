@@ -6,9 +6,3 @@ switch
 break
 return
 continue
-int
-float
-bool
-char
-string
-array

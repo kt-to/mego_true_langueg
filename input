@@ -1,1 +1,4 @@
 ebala.PIZDA += 43.67 + 6
+for (int i = 0; i < n; ++i) {
+    cout < < 3 << "\n";
+ }

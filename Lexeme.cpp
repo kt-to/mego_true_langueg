@@ -26,7 +26,7 @@
 
 using namespace std;
 
-Lexeme::Lexeme(int type, string data) : type(type), data(std::move(data)) {}
+Lexeme::Lexeme(int type, string data, string tp) : type(type), data(std::move(data)), tp(std::move(tp)) {}
 
 Lexeme::Lexeme(const Lexeme& other) {
     type = other.type;
