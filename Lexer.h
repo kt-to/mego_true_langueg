@@ -51,6 +51,6 @@ void Switch();
 
 void Case();
 
-void Coll_fun();
+void Call_func();
 
 #endif //MEGO_TRUE_LANGUEG_LEXER_H
