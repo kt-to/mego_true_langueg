@@ -1,54 +1,54 @@
 #ifndef MEGO_TRUE_LANGUEG_LEXER_H
 #define MEGO_TRUE_LANGUEG_LEXER_H
 
-void Program() {}
+void Program();
 
-void Main() {}
+void Main();
 
-void Function_declarations() {}
+void Function_declarations();
 
-void Description_of_functions() {}
+void Description_of_functions();
 
-void Type() {}
+void Type();
 
-void Array() {}
+void Array();
 
-void Declaring_variables() {}
+void Declaring_variables();
 
-void Declaring_arguments() {}
+void Declaring_arguments();
 
-void Declaring_variable() {}
+void Declaring_variable();
 
-void Symbol() {}
+void Symbol();
 
-void Number() {}
+void Number();
 
-void Double() {}
+void Double();
 
-void Name() {}
+void Name();
 
-void String() {}
+void String();
 
-void Literal() {}
+void Literal();
 
-void Code_block() {}
+void Code_block();
 
-void Keyword() {}
+void Keyword();
 
-void Exp_main() {}
+void Exp_main();
 
-void While() {}
+void While();
 
-void For() {}
+void For();
 
-void Between() {}
+void Between();
 
-void If() {}
+void If();
 
-void Else() {}
+void Else();
 
-void Switch() {}
+void Switch();
 
-void Case() {}
+void Case();
 
 #endif //MEGO_TRUE_LANGUEG_LEXER_H
