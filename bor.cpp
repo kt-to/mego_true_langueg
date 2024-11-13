@@ -19,13 +19,7 @@ int bor::gagago(std::string &word, int i) {
             return 0;
         }
     }
-    if (now->is_key_word) {
-        return 1;
-    }
-    if (now->is_operator) {
-        return 2;
-    }
-    return 0;
+    return now->type;
 }
 
 
@@ -55,25 +49,16 @@ void bor::add(std::string &word, int type) {
             now = br;
         }
     }
-    if (type == 1) {
-        now->is_key_word = true;
-    }
-    if (type == 2) {
-        now->is_operator = true;
-    }
     ++_cnt_words;
+    now->type = type;
 }
 
 bor::node::node() {
     sim = '\0';
-    is_operator = false;
-    is_key_word = false;
 }
 
 bor::node::node(char _sim) {
     sim = _sim;
-    is_key_word = false;
-    is_operator = false;
 }
 
 int bor::get_cnt_words() {

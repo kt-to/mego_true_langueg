@@ -218,6 +218,12 @@ vector<Lexeme> lexrr() {
     while (getline(ff, t)) {
         b.add(t, 1);
     }
+    ifstream nn("../types");
+    string sd;
+    while (getline(nn, sd)) {
+        cout << sd << "\n";
+        b.add(sd, 7);
+    }
     ifstream inp("../input");
     string s;
     while (getline(inp, t)) {
@@ -239,7 +245,7 @@ Lexeme lex;
 
 void getlex() {
     if (cur == lex_container.size()) {
-        lex = {7, {}};
+        lex = {8, {}};
     } else {
         lex = lex_container[cur++];
     }
@@ -247,13 +253,13 @@ void getlex() {
 
 signed main() {
     lex_container = lexrr();
-    vector<string> definition{"name", "key_word", "operator", "number", "comment", "literal", "double", "end"};
+    vector<string> definition{"name", "key_word", "operator", "number", "comment", "literal", "double", "type", "end"};
     ofstream out("/home/ivang/mego_true_langueg/output");
     for (auto& el : lex_container) {
         el.tp = definition[el.type];
+        if (el.type == 1 || el.type == 2) {
+            el.tp = el.data;
+        }
+        out << "<" << el.tp << ">" << " " << el.data << "\n";
     }
 }
-
-// long comment YES
-// number of line NO
-// double NO
