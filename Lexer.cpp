@@ -10,7 +10,7 @@ void Program() {
             cnt++;
         } else {
             if (lex.get_type() == "type") {
-                Declaring_variable();
+                Declaring_variables();
                 cnt++;
             }
         }
@@ -30,55 +30,35 @@ void Main() {
 void Function_declarations() {
     Name();
     if (lex.get_type() == "(") {
+        getlex();
         Declaring_arguments();
         if (lex.get_type() == ")") {
             getlex();
             if (lex.get_type() == "type") {
                 getlex();
-                if (lex.get_type() == "{") {
+                Description_of_functions();
+                if (lex.get_type() == "}") {
                     getlex();
-                    Description_of_functions();
-                    if (lex.get_type() == "}") {
-                        if (lex.get_type() == ";") {
-                            getlex();
-                            return;
-                        } else {
-                            throw "; not find";
-                        }
-                    } else {
-                        throw "} not find";
-                    }
+                    return;
                 } else {
-                    throw "{ not find";
+                    throw "Didn't find } in Function_declarations";
                 }
             } else {
-                throw "type not find";
+                throw "Didn't find type in Function_declarations";
             }
         } else {
-            throw ") not find";
+            throw "Didn't find ) in Function_declarations";
         }
     } else {
-        throw "( not find";
+        throw "Didn't find ( in Function_declarations";
     }
 }
 
 void Description_of_functions() {
     if (lex.get_type() == "{") {
         Code_block();
-        if (lex.get_type() == "return") {
-            getlex();
-            Literal();
-            if (lex.get_type() == "}") {
-                getlex();
-                return;
-            } else {
-                throw "Didn't find { in Description_of_functions";
-            }
-        } else {
-            throw "Didn't find return in Description_of_functions";
-        }
     } else {
-        throw "Didn't find } in Description_of_functions";
+        throw "Didn't find { in Description_of_functions";
     }
 }
 
@@ -102,6 +82,10 @@ void Declaring_variables() {
     } else {
         throw "Didn't find type in Declaring_variables";
     }
+    if (lex.get_type() != ";") {
+        throw "Didn't find ; in Declaring_variables";
+    }
+    getlex();
 }
 
 void Declaring_arguments() {
@@ -117,13 +101,17 @@ void Declaring_argument() {
     Name();
     if (lex.get_type() == "=") {
         getlex();
-        Literal();
+        exp0();
     }
 }
 
 void Declaring_variable() {
     Type();
     Name();
+    if (lex.get_type() != ";") {
+        throw "Didn't find ; in Declaring_variable";
+    }
+    getlex();
 }
 
 void Name() {
@@ -136,9 +124,13 @@ void Name() {
 }
 
 void Literal() {
+    if (lex.get_type() == "'") {
+        getlex();
+        getlex();
+    }
     if (lex.get_type() == "name" ||
     lex.get_type() == "number" ||
-    lex.get_type() == "float") {
+    lex.get_type() == "double" || lex.get_type() == "literal" || lex.get_type() == "'") {
         getlex();
         return;
     } else {
@@ -147,9 +139,17 @@ void Literal() {
 }
 
 void Code_block() {
+    if (lex.get_type() != "{") {
+        throw "Didn't find { in Code_block";
+    }
+    getlex();
     int cnt = 1;
     while (cnt--) {
-        if (Keyword()) {
+        if (lex.get_type() == "return") {
+            getlex();
+            Exp_main();
+            ++cnt;
+        } else if (Keyword()) {
             cnt++;
             if (lex.get_type() == "between") {
                 Between();
@@ -171,6 +171,9 @@ void Code_block() {
                 Switch();
                 continue;
             }
+        } else if (lex.get_type() == "type") {
+            Declaring_variables();
+            ++cnt;
         } else {
             if (lex.get_type() != "}") {
                 Exp_main();
@@ -195,26 +198,26 @@ bool Keyword() {
 }
 
 void Exp_main() {
-    exp1();
+    exp0();
+    if (lex.get_type() != ";") {
+        throw "Didn't find ; in Exp_main";
+    }
+    getlex();
 }
 
 void While() {
     if (lex.get_type() == "while") {
         getlex();
         if (lex.get_type() == "(") {
-            exp1();
+            getlex();
+            exp0();
             if (lex.get_type() == ")") {
                 getlex();
                 if (lex.get_type() == "{") {
                     Code_block();
                     if (lex.get_type() == "}") {
                         getlex();
-                        if (lex.get_type() == ";") {
-                            getlex();
-                            return;
-                        } else {
-                            throw "Didn't find ; in While";
-                        }
+                        return;
                     } else {
                         throw "Didn't find } in While";
                     }
@@ -232,12 +235,177 @@ void While() {
     }
 }
 
-void For() {}
+void For() {
+    if (lex.get_type() == "for") {
+        getlex();
+        if (lex.get_type() == "(") {
+            getlex();
+            Declaring_argument();
+            if (lex.get_type() == ";") {
+                getlex();
+                Exp_main();
+                exp0();
+                if (lex.get_type() == ")") {
+                    getlex();
+                    if (lex.get_type() == "{") {
+                        Code_block();
+                        if (lex.get_type() == "}") {
+                            getlex();
+                            return;
+                        } else {
+                            throw "Didn't find } in for";
+                        }
+                    } else {
+                        throw "Didn't find { in for";
+                    }
+                } else {
+                    throw "Didn't find ) in for";
+                }
+            } else {
+                throw "Didn't find ; in for";
+            }
+        } else {
+            throw "Didn't find ( in for";
+        }
+    } else {
+        throw "Didn't find for in for";
+    }
+}
 
-void If() {}
+void If() {
+    if (lex.get_type() == "if") {
+        getlex();
+        if (lex.get_type() == "(") {
+            getlex();
+            exp0();
+            if (lex.get_type() == ")") {
+                getlex();
+                if (lex.get_type() == "{") {
+                    Code_block();
+                    if (lex.get_type() == "}") {
+                        getlex();
+                        Else();
+                        return;
+                    } else {
+                         throw "Didn't find } in if";
+                    }
+                } else {
+                    throw "Didn't find { in if";
+                }
+            } else {
+                throw "Didn't find ) in if";
+            }
+        } else {
+            throw "Didn't find ( in if";
+        }
+    } else {
+        throw "Didn't find if in if";
+    }
+}
 
-void Switch() {}
+void Else() {
+    if (lex.get_type() == "else") {
+        getlex();
+        if (lex.get_type() == "{") {
+            getlex();
+            Exp_main();
+            if (lex.get_type() == "}") {
+                getlex();
+                return;
+            } else {
+                throw "Didn't find } in else";
+            }
+        } else {
+            throw "Didn't find { in else";
+        }
+    }
+}
 
-void Call_func() {}
+void Switch() {
+    if (lex.get_type() == "switch") {
+        getlex();
+        if (lex.get_type() == "(") {
+            getlex();
+            exp0();
+            if (lex.get_type() == ")") {
+                getlex();
+                if (lex.get_type() == "{") {
+                    getlex();
+                    while (lex.get_type() == "case") {
+                        Case();
+                    }
+                    if (lex.get_type() == "}") {
+                        getlex();
+                    } else {
+                        throw "Didn't find } in swich";
+                    }
+                } else {
+                    throw "Didn't find { in swich";
+                }
+            } else {
+                throw "Didn't find ) in swich";
+            }
+        } else {
+            throw "Didn't find ( in swich";
+        }
+    } else {
+        throw "Didn't find swich in swich";
+    }
+}
+
+void Case() {
+    if (lex.get_type() == "case") {
+        getlex();
+        if (lex.get_type() == "(") {
+            getlex();
+            exp0();
+            if (lex.get_type() == ")") {
+                getlex();
+                if (lex.get_type() == "{") {
+                    Code_block();
+                    if (lex.get_type() == "}") {
+                        getlex();
+                        return;
+                    } else {
+                        throw "Didn't find } in case";
+                    }
+                } else {
+                    throw "Didn't find { in case";
+                }
+            } else {
+                throw "Didn't find ) in case";
+            }
+        } else {
+            throw "Didn't find ( in case";
+        }
+    } else {
+        throw "Didn't find case in case";
+    }
+}
+
+void Call_func() {
+    Name();
+    if (lex.get_type() == "(") {
+        getlex();
+        Argument_enumerationn();
+        if (lex.get_type() == ")") {
+            getlex();
+        } else {
+            throw "Didn't find ) in Call_func";
+        }
+    } else {
+        throw "Didn't find ( in Call_func";
+    }
+}
+
+void Argument_enumerationn() {
+    if (lex.get_type() == "name") {
+        exp0();
+        while (lex.get_type() == ",") {
+            getlex();
+            exp0();
+        }
+    }
+}
 
 void Between() {}

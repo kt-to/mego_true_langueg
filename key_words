@@ -6,3 +6,5 @@ switch
 break
 return
 continue
+else
+case

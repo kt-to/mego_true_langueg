@@ -130,7 +130,6 @@ vector<Lexeme> lepsikon(string& s, bor& b) {
                 cur.push_back(c);
             } else {
                 addstr(cur, res, b);
-                cur.push_back('"');
                 add(cur, res, b);
                 is_string = false;
             }
@@ -156,7 +155,6 @@ vector<Lexeme> lepsikon(string& s, bor& b) {
             } else {
                 add(cur, res, b);
             }
-            cur.push_back('"');
             add(cur, res, b);
             is_string = true;
         } else if (c == ' ' || c == '\n') {
@@ -216,7 +214,6 @@ vector<Lexeme> lexrr() {
     ifstream nn("../types");
     string sd;
     while (getline(nn, sd)) {
-        cout << sd << "\n";
         b.add(sd, 7);
     }
     ifstream inp("../input");
@@ -242,12 +239,11 @@ void getlex() {
     }
 }
 
-Lexeme nextlex() {
+string nextlex() {
     if (cur == lex_container.size()) {
-        return {8, {}, "end"};
-    } else {
-        return lex_container[cur];
+        return "end";
     }
+    return lex_container[cur].get_type();
 }
 
 void make() {
@@ -258,6 +254,9 @@ void make() {
         el.tp = definition[el.type];
         if (el.type == 1 || el.type == 2) {
             el.tp = el.data;
+        }
+        if (el.data == "main") {
+            el.tp = "main";
         }
         out << "<" << el.tp << ">" << " " << el.data << "\n";
     }

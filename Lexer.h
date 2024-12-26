@@ -48,4 +48,6 @@ void Case();
 
 void Call_func();
 
+void Argument_enumerationn();
+
 #endif //MEGO_TRUE_LANGUEG_LEXER_H

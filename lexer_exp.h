@@ -25,6 +25,7 @@
 #include "lexicon.h"
 #include "Lexer.h"
 
+void exp0();
 void exp1(); // Выражение_запятая
 void exp2(); // Выражение_присваивания
 void exp3(); // Выражение_логик_или

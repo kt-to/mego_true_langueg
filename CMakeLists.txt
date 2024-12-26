@@ -14,4 +14,11 @@ add_executable(mego_true_langueg
         Lexer.cpp
         lexer_exp.cpp
         lexicon.h
-        main.cpp)
+        main.cpp
+        semanter.cpp
+        semanter.h
+        semanter.cpp
+        TID.h
+        TID.cpp
+        sem_stack.h
+        sem_stack.cpp)

@@ -1,15 +1,13 @@
 # ninja log v5
-2	1528	1731508878650024355	CMakeFiles/mego_true_langueg.dir/lexicon.cpp.o	a8024e7edcbb0e28
-2	1111	1731509171100029840	CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o	1e242a4f3ba5661e
+4	1598	1735168337850056218	CMakeFiles/mego_true_langueg.dir/lexicon.cpp.o	a8024e7edcbb0e28
+3	2243	1735166799123360605	CMakeFiles/mego_true_langueg.dir/sem_stack.cpp.o	6c01508c387bf33e
+3	1178	1735170200860091378	CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o	1e242a4f3ba5661e
 2	1197	1731508878320024348	CMakeFiles/mego_true_langueg.dir/Lexeme.cpp.o	a79c325714b52220
-1	553	1731503093920002330	CMakeFiles/mego_true_langueg.dir/bor.cpp.o	208d8675dcffa066
-1	1572	1731503094940002350	CMakeFiles/mego_true_langueg.dir/main.cpp.o	ab33fd9dedb24065
-1112	1208	1731509171196696508	mego_true_langueg	f2a67b99b7dadea0
-2	1145	1731509048630027542	CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o	1425bc9923957f8d
-4	1187	1731509637990038656	CMakeFiles/mego_true_langueg.dir/main.cpp.o	ab33fd9dedb24065
-4	1238	1731509638043371990	CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o	1e242a4f3ba5661e
-4	1239	1731509638043371990	CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o	1425bc9923957f8d
-3	1423	1731509638226705328	CMakeFiles/mego_true_langueg.dir/lexicon.cpp.o	a8024e7edcbb0e28
-1423	1559	1731509638360038664	mego_true_langueg	ec4797e1ffd2640
-2	1218	1731509694633373059	CMakeFiles/mego_true_langueg.dir/main.cpp.o	ab33fd9dedb24065
-1218	1327	1731509694740039728	mego_true_langueg	ec4797e1ffd2640
+6	948	1735037535426669125	CMakeFiles/mego_true_langueg.dir/bor.cpp.o	208d8675dcffa066
+2	916	1735170115466756430	CMakeFiles/mego_true_langueg.dir/main.cpp.o	ab33fd9dedb24065
+2015	2135	1735171503096782610	mego_true_langueg	fa6f843ca1aa4d0c
+3	1363	1735170321393426985	CMakeFiles/mego_true_langueg.dir/lexer_exp.cpp.o	1425bc9923957f8d
+3	2015	1735171502980115941	CMakeFiles/mego_true_langueg.dir/semanter.cpp.o	af1a4531e48c59e5
+3	2037	1735169823636750923	CMakeFiles/mego_true_langueg.dir/TID.cpp.o	fae089271854e15d
+3	1192	1735171681420119307	CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o	1e242a4f3ba5661e
+1192	1319	1735171681546785976	mego_true_langueg	fa6f843ca1aa4d0c

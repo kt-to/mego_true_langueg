@@ -11,6 +11,7 @@ void exp0() { // Выражение_запятая
 void exp1() { // Выражение_присваивания
     auto norm {[&]() {return lex.get_type() == "=" || lex.get_type() == "+=" ||
     lex.get_type() == "-=" || lex.get_type() == "*=" || lex.get_type() == "/=" || lex.get_type() == "%=";}};
+    exp2();
     while (norm()) {
         getlex();
         exp2();
@@ -129,18 +130,19 @@ void exp14() { // Выражение_индексов
 
 void exp15() { // Выражение_последнее
     if (lex.get_type() == "name") {
-        if (nextlex().get_type() == "(") {
+        if (nextlex() == "(") {
             Call_func();
         } else {
-            Lexeme();
+            Literal();
         }
     } else if (lex.get_type() == "(") {
-        Exp_main();
+        getlex();
+        exp0();
         if (lex.get_type() != ")") {
             throw "Didn't find ) in exp15";
         }
         getlex();
     } else {
-        throw "Didn't find ( or name in exp15";
+        Literal();
     }
 }

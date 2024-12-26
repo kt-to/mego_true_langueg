@@ -27,7 +27,7 @@ inline Lexeme lex;
 
 void getlex();
 
-Lexeme nextlex();
+string nextlex();
 
 void make();
 
