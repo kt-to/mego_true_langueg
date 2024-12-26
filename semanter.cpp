@@ -17,11 +17,13 @@ void roll() {
             if (ifor) {
                 ifor = false;
                 dfor = 0;
+                tid.add_node();
             } else if (wl) {
                 if (st.st_tp.empty() || !st.chi(st.st_tp.back())) {
                     throw "Non bool expression in while";
                 }
                 wl = false;
+                tid.add_node();
             } else {
                 tid.add_node();
             }
@@ -29,7 +31,7 @@ void roll() {
             st.st_op.clear();
         } else if (lex.tp == "}") {
             tid.del_node();
-            if (tid.t->par->par == nullptr) {
+            if (tid.tk) {
                 tid.del_node();
             }
         } else if (lex.tp == "type") {
@@ -68,6 +70,7 @@ void roll() {
                 }
                 func_table[lex.data] = 1;
                 tid.add_node();
+                tid.tk = true;
             } else {
                 string t = tid.get_type(lex.data);
                 if (t == "NONE") {
@@ -88,16 +91,19 @@ void roll() {
                 st.add_op(lex.tp);
         } else if (lex.tp == "for") {
             tid.add_node();
+            tid.tk = true;
             ifor = true;
             dfor = 0;
-        } else if (lex.tp == "while") {
+        } else if (lex.tp == "while" || lex.tp == "if") {
             tid.add_node();
+            tid.tk = true;
             wl = true;
         } else if (lex.tp == "return") {
             ret = true;
         } else if (lex.tp == "main") {
             func_type = "int";
             tid.add_node();
+            tid.tk = true;
             if (func_table["main"]) {
                 throw "Redefinition of main";
             }

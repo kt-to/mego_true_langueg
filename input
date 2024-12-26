@@ -1,0 +1,14 @@
+main{
+    int n;
+    int i;
+    i = 45;
+    for (int i = 0; i < n; ++i) {
+        int k;
+        string i;
+        if (i != "PP") {
+            i += "a";
+        }
+        i = "FD";
+    }
+    --i;
+}

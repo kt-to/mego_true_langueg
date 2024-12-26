@@ -11,3 +11,8 @@
 3	2037	1735169823636750923	CMakeFiles/mego_true_langueg.dir/TID.cpp.o	fae089271854e15d
 3	1192	1735171681420119307	CMakeFiles/mego_true_langueg.dir/Lexer.cpp.o	1e242a4f3ba5661e
 1192	1319	1735171681546785976	mego_true_langueg	fa6f843ca1aa4d0c
+7	2240	1735206762846670759	CMakeFiles/mego_true_langueg.dir/TID.cpp.o	fae089271854e15d
+6	2353	1735206762963337428	CMakeFiles/mego_true_langueg.dir/semanter.cpp.o	af1a4531e48c59e5
+2353	2512	1735206763120004097	mego_true_langueg	fa6f843ca1aa4d0c
+2	1775	1735207035450009239	CMakeFiles/mego_true_langueg.dir/semanter.cpp.o	af1a4531e48c59e5
+1775	1885	1735207035560009241	mego_true_langueg	fa6f843ca1aa4d0c
