@@ -1,5 +1,6 @@
 #ifndef MEGO_TRUE_LANGUEG_LEXEME_H
 #define MEGO_TRUE_LANGUEG_LEXEME_H
+#pragma once
 #include <cmath>
 #include <algorithm>
 #include <deque>

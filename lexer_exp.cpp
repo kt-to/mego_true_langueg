@@ -3,6 +3,7 @@
 void exp0() { // Выражение_запятая
     exp1();
     while (lex.get_type() == ",") {
+        pz.add_op(lex.data);
         getlex();
         exp1();
     }
@@ -13,6 +14,7 @@ void exp1() { // Выражение_присваивания
     lex.get_type() == "-=" || lex.get_type() == "*=" || lex.get_type() == "/=" || lex.get_type() == "%=";}};
     exp2();
     while (norm()) {
+        pz.add_op(lex.data);
         getlex();
         exp2();
     }
@@ -30,6 +32,7 @@ void exp2() { // Выражение_логик_или
 void exp3() { // Выражение_логик_и
     exp4();
     while (lex.get_type() == "&&") {
+        pz.add_op(lex.data);
         getlex();
         exp4();
     }
@@ -38,6 +41,7 @@ void exp3() { // Выражение_логик_и
 void exp4() { // Выражение_бит_или
     exp5();
     while (lex.get_type() == "|") {
+        pz.add_op(lex.data);
         getlex();
         exp5();
     }
@@ -46,6 +50,7 @@ void exp4() { // Выражение_бит_или
 void exp5() { // Выражение_бит_ксор
     exp6();
     while (lex.get_type() == "^") {
+        pz.add_op(lex.data);
         getlex();
         exp6();
     }
@@ -54,6 +59,7 @@ void exp5() { // Выражение_бит_ксор
 void exp6() { // Выражение_бит_и
     exp7();
     while (lex.get_type() == "&") {
+        pz.add_op(lex.data);
         getlex();
         exp7();
     }
@@ -64,6 +70,7 @@ void exp7() { // Выражение_сравнение
     auto norm {[&]() {return lex.get_type() == ">" || lex.get_type() == "<" ||
     lex.get_type() == ">=" || lex.get_type() == "<=" || lex.get_type() == "!=" || lex.get_type() == "==";}};
     while (norm()) {
+        pz.add_op(lex.data);
         getlex();
         exp8();
     }
@@ -72,6 +79,7 @@ void exp7() { // Выражение_сравнение
 void exp8() { // Выражение_бит_сдвига
     exp9();
     while (lex.get_type() == "<<" || lex.get_type() == ">>") {
+        pz.add_op(lex.data);
         getlex();
         exp9();
     }
@@ -80,6 +88,7 @@ void exp8() { // Выражение_бит_сдвига
 void exp9() { // Выражение_простой_арифметики
     exp10();
     while (lex.get_type() == "+" || lex.get_type() == "-") {
+        pz.add_op(lex.data);
         getlex();
         exp10();
     }
@@ -88,6 +97,7 @@ void exp9() { // Выражение_простой_арифметики
 void exp10() { // Выражение_сложной_арифметики
     exp11();
     while (lex.get_type() == "*" || lex.get_type() == "/" || lex.get_type() == "%") {
+        pz.add_op(lex.data);
         getlex();
         exp11();
     }
@@ -95,6 +105,7 @@ void exp10() { // Выражение_сложной_арифметики
 
 void exp11() { // Выражение_логического_НЕ
     while (lex.get_type() == "!" || lex.get_type() == "~") {
+        pz.add_op(lex.data);
         getlex();
     }
     exp12();
@@ -102,6 +113,7 @@ void exp11() { // Выражение_логического_НЕ
 
 void exp12() { // Выражение_унарного_арифм
     while (lex.get_type() == "$" || lex.get_type() == "@") {
+        pz.add_op(lex.data);
         getlex();
     }
     exp13();
@@ -110,6 +122,7 @@ void exp12() { // Выражение_унарного_арифм
 
 void exp13() { // Выражение_инкрементов
     while (lex.get_type() == "++" || lex.get_type() == "--") {
+        pz.add_op(lex.data);
         getlex();
     }
     exp14();
@@ -118,11 +131,13 @@ void exp13() { // Выражение_инкрементов
 void exp14() { // Выражение_индексов
     exp15();
     while (lex.get_type() == "[") {
+        pz.add_op(lex.data);
         getlex();
         exp15();
         if (lex.get_type() != "]") {
             throw "Didn't find ] in exp14";
         }
+        pz.add_op(lex.data);
         getlex();
     }
 }
@@ -136,11 +151,13 @@ void exp15() { // Выражение_последнее
             Literal();
         }
     } else if (lex.get_type() == "(") {
+        pz.add_op(lex.data);
         getlex();
         exp0();
         if (lex.get_type() != ")") {
             throw "Didn't find ) in exp15";
         }
+        pz.add_op(lex.data);
         getlex();
     } else {
         Literal();

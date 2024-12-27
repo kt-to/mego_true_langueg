@@ -1,5 +1,3 @@
-//
-// Created by Дмитрий Фоминых on 13.11.2024.
 #include "Lexer.h"
 
 void Program() {
@@ -23,6 +21,7 @@ void Program() {
 }
 
 void Main() {
+    pz.add_plz(lex.data);
     getlex();
     Code_block();
 }
@@ -30,11 +29,14 @@ void Main() {
 void Function_declarations() {
     Name();
     if (lex.get_type() == "(") {
+        pz.add_op(lex.data);
         getlex();
         Declaring_arguments();
         if (lex.get_type() == ")") {
+            pz.add_op(lex.data);
             getlex();
             if (lex.get_type() == "type") {
+                pz.add_plz(lex.data);
                 getlex();
                 Description_of_functions();
                 if (lex.get_type() == "}") {
@@ -64,6 +66,7 @@ void Description_of_functions() {
 
 void Type() {
     if (lex.get_type() == "type") {
+        pz.add_plz(lex.data);
         getlex();
         return;
     } else {
@@ -73,9 +76,11 @@ void Type() {
 
 void Declaring_variables() {
     if (lex.get_type() == "type") {
+        pz.add_plz(lex.data);
         getlex();
         Name();
         while (lex.get_type() == ",") {
+            pz.add_op(lex.data);
             getlex();
             Name();
         }
@@ -85,12 +90,14 @@ void Declaring_variables() {
     if (lex.get_type() != ";") {
         throw "Didn't find ; in Declaring_variables";
     }
+    pz.add_op(lex.data);
     getlex();
 }
 
 void Declaring_arguments() {
     Declaring_argument();
     while (lex.get_type() == ",") {
+        pz.add_op(lex.data);
         getlex();
         Declaring_argument();
     }
@@ -100,22 +107,15 @@ void Declaring_argument() {
     Type();
     Name();
     if (lex.get_type() == "=") {
+        pz.add_op(lex.data);
         getlex();
         exp0();
     }
 }
 
-void Declaring_variable() {
-    Type();
-    Name();
-    if (lex.get_type() != ";") {
-        throw "Didn't find ; in Declaring_variable";
-    }
-    getlex();
-}
-
 void Name() {
     if (lex.get_type() == "name") {
+        pz.add_plz(lex.data);
         getlex();
         return;
     } else {
@@ -131,6 +131,7 @@ void Literal() {
     if (lex.get_type() == "name" ||
     lex.get_type() == "number" ||
     lex.get_type() == "double" || lex.get_type() == "literal" || lex.get_type() == "'") {
+        pz.add_plz(lex.data);
         getlex();
         return;
     } else {
@@ -146,6 +147,7 @@ void Code_block() {
     int cnt = 1;
     while (cnt--) {
         if (lex.get_type() == "return") {
+            pz.add_plz(lex.data);
             getlex();
             Exp_main();
             ++cnt;
@@ -202,16 +204,20 @@ void Exp_main() {
     if (lex.get_type() != ";") {
         throw "Didn't find ; in Exp_main";
     }
+    pz.add_op(lex.data);
     getlex();
 }
 
 void While() {
     if (lex.get_type() == "while") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "(") {
+            pz.add_op(lex.data);
             getlex();
             exp0();
             if (lex.get_type() == ")") {
+                pz.add_op(lex.data);
                 getlex();
                 if (lex.get_type() == "{") {
                     Code_block();
@@ -237,15 +243,19 @@ void While() {
 
 void For() {
     if (lex.get_type() == "for") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "(") {
+            pz.add_op(lex.data);
             getlex();
             Declaring_argument();
             if (lex.get_type() == ";") {
+                pz.add_op(lex.data);
                 getlex();
                 Exp_main();
                 exp0();
                 if (lex.get_type() == ")") {
+                    pz.add_op(lex.data);
                     getlex();
                     if (lex.get_type() == "{") {
                         Code_block();
@@ -274,11 +284,14 @@ void For() {
 
 void If() {
     if (lex.get_type() == "if") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "(") {
+            pz.add_op(lex.data);
             getlex();
             exp0();
             if (lex.get_type() == ")") {
+                pz.add_op(lex.data);
                 getlex();
                 if (lex.get_type() == "{") {
                     Code_block();
@@ -305,6 +318,7 @@ void If() {
 
 void Else() {
     if (lex.get_type() == "else") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "{") {
             getlex();
@@ -323,11 +337,14 @@ void Else() {
 
 void Switch() {
     if (lex.get_type() == "switch") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "(") {
+            pz.add_op(lex.data);
             getlex();
             exp0();
             if (lex.get_type() == ")") {
+                pz.add_op(lex.data);
                 getlex();
                 if (lex.get_type() == "{") {
                     getlex();
@@ -355,11 +372,14 @@ void Switch() {
 
 void Case() {
     if (lex.get_type() == "case") {
+        pz.add_plz(lex.data);
         getlex();
         if (lex.get_type() == "(") {
+            pz.add_op(lex.data);
             getlex();
             exp0();
             if (lex.get_type() == ")") {
+                pz.add_op(lex.data);
                 getlex();
                 if (lex.get_type() == "{") {
                     Code_block();
@@ -386,9 +406,11 @@ void Case() {
 void Call_func() {
     Name();
     if (lex.get_type() == "(") {
+        pz.add_op(lex.data);
         getlex();
         Argument_enumerationn();
         if (lex.get_type() == ")") {
+            pz.add_op(lex.data);
             getlex();
         } else {
             throw "Didn't find ) in Call_func";
@@ -399,12 +421,11 @@ void Call_func() {
 }
 
 void Argument_enumerationn() {
-    if (lex.get_type() == "name") {
+    exp0();
+    while (lex.get_type() == ",") {
+        pz.add_op(lex.data);
+        getlex();
         exp0();
-        while (lex.get_type() == ",") {
-            getlex();
-            exp0();
-        }
     }
 }
 

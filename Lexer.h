@@ -3,6 +3,9 @@
 #pragma once
 #include "lexicon.h"
 #include "lexer_exp.h"
+#include "poliz.h"
+
+inline poliz pz;
 
 void Program();
 

@@ -21,4 +21,6 @@ add_executable(mego_true_langueg
         TID.h
         TID.cpp
         sem_stack.h
-        sem_stack.cpp)
+        sem_stack.cpp
+        poliz.cpp
+        poliz.h)

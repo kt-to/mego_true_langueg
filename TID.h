@@ -18,8 +18,6 @@ public:
 
     node* t = nullptr;
 
-    bool tk = false;
-
     bool add_type(string& name, string& type);
 
     void add_node();
